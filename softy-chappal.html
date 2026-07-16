@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body>
 
     <h1>Softy Chappal</h1>
@@ -15,12 +16,20 @@
     <img src="new.jpeg" alt="Softy Chappal" width="400">
 
     <h2>Price: Rs.1999</h2>
+    <h3>Total Price: Rs. <span id="totalPrice">1999</span></h3>
+    <h3>Quantity</h3>
+
+<button onclick="decreaseQty()">-</button>
+
+<input type="text" id="qty" value="1" readonly style="width:40px; text-align:center;">
+
+<button onclick="increaseQty()">+</button>
 
     <p><strong>Description:</strong></p>
     <p>Comfortable Softy Chappal for daily use. Premium quality with durable sole.</p>
 
     <h3>Available Sizes</h3>
-    <select>
+    <select id="size">
         <option>39</option>
         <option>40</option>
         <option>41</option>
@@ -30,17 +39,44 @@
     </select>
 
     <br><br>
+    <h3>Delivery Details</h3>
 
-    <a href="https://wa.me/923244880799?text=Assalam-o-Alaikum,%20I%20want%20to%20order%20Softy%20Chappal."
-        target="_blank">
-        <button>Buy Now</button>
-    </a>
+<input type="text" id="customerName" placeholder="Your Name"><br><br>
 
-    <br><br>
+<input type="tel" id="customerPhone" placeholder="Phone Number"><br><br>
+
+<input type="text" id="customerCity" placeholder="City"><br><br>
+
+<textarea id="customerAddress" placeholder="Complete Address"></textarea><br><br>
+<button onclick="orderWhatsApp()">Buy Now</button>
+<br><br>
 
     <a href="index.html">
         <button>⬅ Back to Home</button>
     </a>
+    <script>
+let qty = 1;
+const price = 1999;
+
+function updatePrice() {
+    document.getElementById("qty").value = qty;
+    document.getElementById("totalPrice").innerText = qty * price;
+}
+
+function increaseQty() {
+    qty++;
+    updatePrice();
+}
+
+function decreaseQty() {
+    if (qty > 1) {
+        qty--;
+        updatePrice();
+    }
+}
+
+updatePrice();
+</script>
 
 </body>
 
