@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shahzaib-b893.github.io/WEBSITE---2/sitemap.xml
