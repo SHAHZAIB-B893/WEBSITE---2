@@ -88,3 +88,13 @@ window.deleteProduct = async function (id) {
 }
 
 loadProducts();
+window.editProduct = function (id, productName, productPrice, productImage, productDescription) {
+
+    name.value = productName;
+    price.value = productPrice;
+    image.value = productImage;
+    description.value = productDescription;
+
+    alert("Edit feature is coming soon.");
+
+};
