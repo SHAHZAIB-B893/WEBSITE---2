@@ -3,27 +3,34 @@ import { db, collection, getDocs } from "./firebase.js";
 const productsContainer = document.getElementById("products-container");
 
 async function loadProducts() {
-
     productsContainer.innerHTML = "";
 
     const snapshot = await getDocs(collection(db, "products"));
 
     snapshot.forEach((doc) => {
-
         const product = doc.data();
 
         productsContainer.innerHTML += `
         <div class="card">
             <img src="${product.image}" alt="${product.name}">
+
             <h3>${product.name}</h3>
+
             <p>${product.description || ""}</p>
+
             <p><strong>Price: Rs.${product.price}</strong></p>
 
-            <button onclick="addToCart('${product.name}', ${product.price})">
+            <p style="color:${product.stock ? "green" : "red"}; font-weight:bold;">
+                ${product.stock ? "🟢 In Stock" : "🔴 Out of Stock"}
+            </p>
+
+            <button onclick="addToCart('${product.name}', ${product.price})"
+                ${!product.stock ? "disabled" : ""}>
                 Add to Cart
             </button>
 
-            <button onclick="buyNow('${product.name}')">
+            <button onclick="buyNow('${product.name}')"
+                ${!product.stock ? "disabled" : ""}>
                 Buy Now
             </button>
 
@@ -37,7 +44,6 @@ async function loadProducts() {
         </div>
         `;
     });
-
 }
 
 loadProducts();
