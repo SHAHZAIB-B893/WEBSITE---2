@@ -1,11 +1,10 @@
-// Firebase SDK
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
 import {
     getFirestore,
     collection,
     addDoc,
     getDocs,
     deleteDoc,
+    updateDoc,
     doc
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
@@ -24,4 +23,12 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // Export
-export { db, collection, addDoc, getDocs, deleteDoc, doc };
+export {
+    db,
+    collection,
+    addDoc,
+    getDocs,
+    deleteDoc,
+    updateDoc,
+    doc
+};
