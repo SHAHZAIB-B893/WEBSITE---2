@@ -1,4 +1,12 @@
-import { db, collection, addDoc, getDocs, deleteDoc, doc } from "./firebase.js";
+import {
+    db,
+    collection,
+    addDoc,
+    getDocs,
+    deleteDoc,
+    updateDoc,
+    doc
+} from "./firebase.js";
 
 const products = collection(db, "products");
 
@@ -53,9 +61,17 @@ async function loadProducts() {
                 <img src="${data.image}" width="120">
                 <p>${data.description || ""}</p>
 
-                <button onclick="deleteProduct('${item.id}')">
-                    Delete
-                </button>
+<button onclick="editProduct('${item.id}',
+'${data.name}',
+'${data.price}',
+'${data.image}',
+'${data.description || ""}')">
+    Edit
+</button>
+
+<button onclick="deleteProduct('${item.id}')">
+    Delete
+</button>
             </div>
         `;
     });
