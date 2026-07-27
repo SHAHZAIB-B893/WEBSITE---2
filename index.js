@@ -18,9 +18,22 @@ async function loadProducts() {
             <h3>${product.name}</h3>
             <p>${product.description || ""}</p>
             <p><strong>Price: Rs.${product.price}</strong></p>
-<a href="product.html?id=${doc.id}">
+
+            <button onclick="addToCart('${product.name}', ${product.price})">
+                Add to Cart
+            </button>
+
+            <button onclick="buyNow('${product.name}')">
                 Buy Now
             </button>
+
+            <button onclick="addToWishlist('${product.name}')">
+                ❤️ Wishlist
+            </button>
+
+            <a href="product.html?id=${doc.id}">
+                <button>View Details</button>
+            </a>
         </div>
         `;
     });
