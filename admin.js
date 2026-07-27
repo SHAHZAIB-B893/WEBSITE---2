@@ -14,6 +14,7 @@ const name = document.getElementById("name");
 const price = document.getElementById("price");
 const image = document.getElementById("image");
 const description = document.getElementById("description");
+const stock = document.getElementById("stock");
 const addBtn = document.getElementById("addProduct");
 const productList = document.getElementById("productList");
 
@@ -32,9 +33,9 @@ addBtn.addEventListener("click", async () => {
         name: name.value,
         price: Number(price.value),
         image: image.value,
-        description: description.value
+        description: description.value,
+        stock: stock.value === "true"
     });
-
     alert("Product Added Successfully");
 
     name.value = "";
